@@ -54,7 +54,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  double _saldo = 1500.00; // Saldo inicial
 
   void _incrementCounter() {
     setState(() {
@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      _saldo+= 100.00; // Incrementa o saldo em 100
     });
   }
 
@@ -105,15 +105,19 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-             'Voce apertou este botão esta quantidade de vezes:',
+             'Seu Saldo Atual:', // texto atualizado
              style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
              ),
             ),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              'R\$ ${_saldo.toStringAsFixed(2)}', // Exibe o saldo formatado com duas casas decimais
+              style: const TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.blue, // Cor azul para o saldo
+              ),
             ),
             ],
         ),
